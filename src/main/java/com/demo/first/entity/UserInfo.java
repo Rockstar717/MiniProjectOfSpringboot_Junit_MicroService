@@ -5,6 +5,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table
@@ -13,21 +17,37 @@ public class UserInfo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+
 	private String name;
+	
+	
 	private String email;
+	
+	
 	private String city;
+
+	private String password;
 
 	public UserInfo() {
 		super();
 
 	}
 
-	public UserInfo(int id, String name, String email, String city) {
+	public UserInfo(int id, String name, String email, String city, String password) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.city = city;
+		this.password = password;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public int getId() {
@@ -64,7 +84,8 @@ public class UserInfo {
 
 	@Override
 	public String toString() {
-		return "UserInfo [id=" + id + ", name=" + name + ", email=" + email + ", city=" + city + "]";
+		return "UserInfo [id=" + id + ", name=" + name + ", email=" + email + ", city=" + city + ", password="
+				+ password + "]";
 	}
 
 }

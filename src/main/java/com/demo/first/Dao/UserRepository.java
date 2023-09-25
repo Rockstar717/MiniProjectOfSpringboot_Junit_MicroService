@@ -7,5 +7,7 @@ import com.demo.first.entity.UserInfo;
 
 @Repository
 public interface UserRepository extends JpaRepository<UserInfo, Integer> {
+
+	//void findAll(UserInfo userInfo);
  
 }
